@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>ログイン</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>ユーザID</ion-label>
+      <ion-input type="text" [(ngModel)]="userId"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>パスワード</ion-label>
+      <ion-input type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+  </ion-list>
+  <div padding>
+    <button ion-button color="darkblue" block (click)="try_login()">ログイン</button>
+  </div>
+</ion-content>
