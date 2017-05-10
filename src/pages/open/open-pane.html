@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>パータン認証</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <canvas #ptnInput
+          id="ptnInput"
+          width="3000"
+          height="3000"
+          (pan)="paned($event)"
+          (mousedown)="pressed($event)">
+  </canvas> 
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Copyfree by nwh in 2017.4(https://github.com/niwenhao/SafePW.git)
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>

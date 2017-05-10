@@ -9,6 +9,10 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login'
 import { AuthList } from '../pages/authes/auth-list'
+import { DataCryptoService } from '../service/data-crypto.service'
+import { DataPersistenceService } from '../service/data-persistence.service'
+import { PasswordModelService } from '../service/password-model.service'
+import { OpenPaneComponent } from '../pages/open/open-pane'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -21,7 +25,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     TabsPage,
     LoginPage,
-    AuthList
+    AuthList,
+    OpenPaneComponent
   ],
   imports: [
     BrowserModule,
@@ -35,11 +40,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     TabsPage,
     LoginPage,
-    AuthList
+    AuthList,
+    OpenPaneComponent
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    DataCryptoService,
+    DataPersistenceService,
+    PasswordModelService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

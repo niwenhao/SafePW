@@ -8,18 +8,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { App } from 'ionic-angular';
+import { PasswordModelService } from '../../service/password-model.service';
+import { OpenPaneComponent } from '../open/open-pane';
 var AuthList = (function () {
-    function AuthList(navCtl) {
-        this.navCtl = navCtl;
+    function AuthList(appCtl, authService) {
+        this.appCtl = appCtl;
+        this.authService = authService;
     }
+    AuthList.prototype.logout = function (event) {
+    };
+    AuthList.prototype.move_to = function (event) {
+        this.appCtl.getRootNav().push(OpenPaneComponent);
+    };
     return AuthList;
 }());
 AuthList = __decorate([
     Component({
         templateUrl: "auth-list.html"
     }),
-    __metadata("design:paramtypes", [NavController])
+    __metadata("design:paramtypes", [App, PasswordModelService])
 ], AuthList);
 export { AuthList };
 //# sourceMappingURL=auth-list.js.map
