@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>認証情報一覧</ion-title>
+    <ion-buttons>
+      <button ion-button (click)="logout($event)">ログアウト</button>
+      <button ion-button (click)="append_auth()">追加</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <button ion-item
+            *ngFor="let authData of authDataList"
+            (click)="move_to(authDate)">
+      {{authData.title}}
+    </button>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Copyfree by nwh in 2017.4(https://github.com/niwenhao/SafePW.git)
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>

@@ -1,4 +1,7 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { App } from 'ionic-angular';
+import { SendMethod, SendItem, Authorization, KEY_AUTH_DATA } from '../common-types';
+import { ShowPassword } from '../show/show-password'
 
 interface Position {
   x: number;
@@ -18,6 +21,12 @@ export class OpenPaneComponent implements AfterViewInit {
   cvs = {width: 0, height: 0};
   interval_id: number;
   index_que =　[0];
+
+
+  constructor(
+    public appCtl: App
+  ) {
+  }
 
   ngAfterViewInit() {
     this.context = this.ptnInput.nativeElement.getContext('2d');
@@ -71,6 +80,7 @@ export class OpenPaneComponent implements AfterViewInit {
   paned(event) {
     if (event.isFinal) {
       this.endInput();
+      this.appCtl.getRootNav().push(ShowPassword, { [KEY_AUTH_DATA]: sendData});
     }
 
     this.points.push({ x: event.srcEvent.clientX*3000/this.cvs.width,

@@ -8,8 +8,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component, ViewChild } from '@angular/core';
+import { App } from 'ionic-angular';
+import { KEY_AUTH_DATA } from '../common-types';
+import { ShowPassword } from '../show/show-password';
 var OpenPaneComponent = (function () {
-    function OpenPaneComponent() {
+    function OpenPaneComponent(appCtl) {
+        this.appCtl = appCtl;
         this.points = [];
         this.cvs = { width: 0, height: 0 };
         this.index_que = [0];
@@ -61,9 +65,11 @@ var OpenPaneComponent = (function () {
     OpenPaneComponent.prototype.paned = function (event) {
         if (event.isFinal) {
             this.endInput();
+            this.appCtl.getRootNav().push(ShowPassword, (_a = {}, _a[KEY_AUTH_DATA] = sendData, _a));
         }
         this.points.push({ x: event.srcEvent.clientX * 3000 / this.cvs.width,
             y: event.srcEvent.clientY * 3000 / this.cvs.height });
+        var _a;
     };
     OpenPaneComponent.prototype.pressed = function (event) {
         this.points = [{ x: event.clientX * 3000 / this.cvs.width,
@@ -80,7 +86,8 @@ OpenPaneComponent = __decorate([
     Component({
         templateUrl: "open-pane.html",
         styles: ['#ptnInput {width: 100%; height: 100%; border: solid;}']
-    })
+    }),
+    __metadata("design:paramtypes", [App])
 ], OpenPaneComponent);
 export { OpenPaneComponent };
 //# sourceMappingURL=open-pane.js.map

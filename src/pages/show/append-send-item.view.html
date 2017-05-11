@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{authData.title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <div>送信項目を追加</div>
+      <div>url: {{authData.url}}</div>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>キー</ion-label>
+      <ion-input type="text" [(ngModel)]="key"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>値</ion-label>
+      <ion-input type="password" [(ngModel)]="value"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>ヒント</ion-label>
+      <ion-input type="text" [(ngModel)]="hint"></ion-input>
+    </ion-item>
+    <ion-item>
+      <button ion-button block (click)="appendSendItem()">送信項目追加</button>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Copyfree by nwh in 2017.4(https://github.com/niwenhao/SafePW.git)</ion-title>
+  </ion-toolbar>
+</ion-footer>
